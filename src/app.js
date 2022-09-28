@@ -2,8 +2,8 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
-const { getAlunosCurso, getAlunosStatus, getAlunosAno, getAlunoMatricula, getAlunoAnoStatus } = require('./modulos/alunos.js')
-const { getCursos } = require('./modulos/cursos.js')
+const { getAlunosCurso, getAlunosStatus, getAlunosAno, getAlunoMatricula, getAlunoAnoStatus } = require('../modulos/alunos.js')
+const { getCursos } = require('../modulos/cursos.js')
 
 const app = express()
 
