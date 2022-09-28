@@ -124,6 +124,4 @@ app.get('/cursos', cors(), async function(request, response, next){
     }
 })
 
-app.listen(8080, function() {
-    console.log('SERVIDOR AGUARDANDO REQUISIÇÕES')
-})
+module.exports = app;
