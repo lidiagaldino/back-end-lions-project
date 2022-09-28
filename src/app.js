@@ -6,7 +6,7 @@ const { getAlunosCurso, getAlunosStatus, getAlunosAno, getAlunoMatricula, getAlu
 const { getCursos } = require('../modulos/cursos.js')
 
 const app = express()
-
+const netlifyRoutes = '/.netlify/functions/api/'
 app.use((request, response, next) => {
 
     //Permite especificar quem serão os IPs que podem acessar a API
@@ -21,7 +21,7 @@ app.use((request, response, next) => {
     next()
 })
 
-app.get('/alunos/:curso', cors(), async function(request, response, next){
+app.get('/.netlify/functions/api/alunos/:curso', cors(), async function(request, response, next){
 
     let curso = request.params.curso
     let alunos = getAlunosCurso(curso)
@@ -37,7 +37,7 @@ app.get('/alunos/:curso', cors(), async function(request, response, next){
     }
 })
 
-app.get('/alunos/:status/:curso', cors(), async function(request, response, next){
+app.get('/.netlify/functions/api/alunos/:status/:curso', cors(), async function(request, response, next){
 
     let status = request.params.status
     let curso = request.params.curso
@@ -55,7 +55,7 @@ app.get('/alunos/:status/:curso', cors(), async function(request, response, next
     }
 })
 
-app.get('/aluno/:matricula/:curso', cors(), async function(request, response, next){
+app.get('/.netlify/functions/api/aluno/:matricula/:curso', cors(), async function(request, response, next){
 
     let matricula = request.params.matricula
     let curso = request.params.curso
@@ -71,7 +71,7 @@ app.get('/aluno/:matricula/:curso', cors(), async function(request, response, ne
     }
 })
 
-app.get('/estudantes/:ano/:curso', cors(), async function(request, response, next){
+app.get('/.netlify/functions/api/estudantes/:ano/:curso', cors(), async function(request, response, next){
 
     let year = request.params.ano
     let course = request.params.curso
@@ -90,7 +90,7 @@ app.get('/estudantes/:ano/:curso', cors(), async function(request, response, nex
 
 })
 
-app.get('/estudantes/:ano/:curso/:status', cors(), async function(request, response, next){
+app.get('/.netlify/functions/api/estudantes/:ano/:curso/:status', cors(), async function(request, response, next){
 
     let ano = request.params.ano
     let curso = request.params.curso
@@ -109,7 +109,7 @@ app.get('/estudantes/:ano/:curso/:status', cors(), async function(request, respo
     }
 })
 
-app.get('/cursos', cors(), async function(request, response, next){
+app.get('/.netlify/functions/api/cursos', cors(), async function(request, response, next){
 
     let cursos = getCursos()
     let cursosJSON = {}
